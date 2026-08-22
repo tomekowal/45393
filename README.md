@@ -110,3 +110,19 @@ if richer changelogs are wanted.
 
 `renovate.json` sets `enabledManagers: ["mix"]` to keep the run focused on the
 defect.
+
+## Side note: the default erlang constraint blocks the `mix.lock` update
+
+`renovate.json` sets `constraints.erlang` to `^27.0.0`. Without it, the run
+fails to update `mix.lock`:
+
+```
+INFO: Installing tool elixir@1.20.3...
+ERROR! Unsupported Erlang/OTP version, expected Erlang/OTP 27+
+FATAL: Install tool elixir failed in 1.9s.
+```
+
+`lib/modules/manager/mix/artifacts.ts` defaults `constraints.erlang` to `^26`,
+while current Elixir needs OTP 27 or later. Renovate still opens the pull
+request, but with a lock file error attached. This is separate from the `~>`
+defect above.

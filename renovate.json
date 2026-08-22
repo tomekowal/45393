@@ -5,5 +5,9 @@
   "rangeStrategy": "widen",
   "separateMinorPatch": false,
   "prHourlyLimit": 0,
-  "prConcurrentLimit": 0
+  "prConcurrentLimit": 0,
+  "constraints": {
+    "erlang": "^27.0.0",
+    "elixir": "^1.18.0"
+  }
 }
