@@ -20,7 +20,7 @@ defmodule RenovateHexWidenRepro.MixProject do
       # hex reads "~> 0.17" as ">= 0.17.0 and < 1.0.0", thus 0.18.5 is already
       # permitted and no change is necessary. Renovate widens to
       # "~> 0.17 or ~> 0.18".
-      {:excoveralls, "~> 0.17", only: :test, runtime: false},
+      {:excoveralls, "~> 0.17 or ~> 0.18", only: :test, runtime: false},
 
       # BUG - the same defect, second example.
       # hex reads "~> 0.6" as ">= 0.6.0 and < 1.0.0", thus 0.7.3 is permitted.
