@@ -24,7 +24,7 @@ defmodule RenovateHexWidenRepro.MixProject do
 
       # BUG - the same defect, second example.
       # hex reads "~> 0.6" as ">= 0.6.0 and < 1.0.0", thus 0.7.3 is permitted.
-      {:req, "~> 0.6"},
+      {:req, "~> 0.6 or ~> 0.7"},
 
       # CONTROL - three-part "~>" with major 0.
       # hex reads "~> 0.13.0" as ">= 0.13.0 and < 0.14.0", thus 0.15.0 is not
