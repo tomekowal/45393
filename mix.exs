@@ -29,7 +29,7 @@ defmodule RenovateHexWidenRepro.MixProject do
       # CONTROL - three-part "~>" with major 0.
       # hex reads "~> 0.13.0" as ">= 0.13.0 and < 0.14.0", thus 0.15.0 is not
       # permitted. Here a widen to "~> 0.13.0 or ~> 0.15.0" is correct.
-      {:sobelow, "~> 0.13.0", only: :dev, runtime: false},
+      {:sobelow, "~> 0.13.0 or ~> 0.15.0", only: :dev, runtime: false},
 
       # CONTROL - two-part "~>" with major 1.
       # hex reads "~> 1.6" as ">= 1.6.0 and < 2.0.0", thus 1.7.19 is permitted.
