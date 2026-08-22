@@ -64,6 +64,19 @@ Upgraded:
 under `~> 0.6`. `sobelow` stayed at `0.13.0`, because its three-part `~> 0.13.0`
 really does stop below `0.14.0`.
 
+## Live evidence
+
+Renovate ran on this repo through the GitHub Action and opened these pull
+requests:
+
+| PR | dep | change | correct? |
+| --- | --- | --- | --- |
+| [#1](https://github.com/tomekowal/renovate-hex-widen-repro/pull/1) | `excoveralls` | `~> 0.17` &rarr; `~> 0.17 or ~> 0.18` | ❌ no change was necessary |
+| [#2](https://github.com/tomekowal/renovate-hex-widen-repro/pull/2) | `req` | `~> 0.6` &rarr; `~> 0.6 or ~> 0.7` | ❌ no change was necessary |
+| [#3](https://github.com/tomekowal/renovate-hex-widen-repro/pull/3) | `sobelow` | `~> 0.13.0` &rarr; `~> 0.13.0 or ~> 0.15.0` | ✅ correct |
+
+`credo` correctly received no pull request.
+
 ## How to reproduce
 
 Against a Renovate checkout:
