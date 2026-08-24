@@ -5,18 +5,18 @@ Reproduction for [Renovate Discussion 45393](https://github.com/renovatebot/reno
 ## Current behavior
 
 `renovate.json` sets `rangeStrategy` to `widen`. `mix.exs` requires
-`{:excoveralls, "~> 0.17"}`. The newest `excoveralls` on hex is `0.18.5`.
+`{:ecto_psql_extras, "~> 0.7"}`. The newest `ecto_psql_extras` on hex is `0.8.8`.
 
 Renovate opens a pull request that widens the requirement:
 
 ```diff
--      {:excoveralls, "~> 0.17", only: :test, runtime: false},
-+      {:excoveralls, "~> 0.17 or ~> 0.18", only: :test, runtime: false},
+-    [{:ecto_psql_extras, "~> 0.7"}]
++    [{:ecto_psql_extras, "~> 0.7 or ~> 0.8"}]
 ```
 
 ## Expected behavior
 
-No pull request at all, because the requirement already permits `0.18.5`.
+No pull request at all, because the requirement already permits `0.8.8`.
 
 In hex, `~>` permits the **right-most** part to increase. From the
 [Elixir `Version` docs](https://hexdocs.pm/elixir/Version.html#module-requirements):
@@ -25,15 +25,17 @@ In hex, `~>` permits the **right-most** part to increase. From the
 | --- | --- |
 | `~> 2.1.2` | `>= 2.1.2 and < 2.2.0` |
 | `~> 2.1` | `>= 2.1.0 and < 3.0.0` |
-| `~> 0.17` | `>= 0.17.0 and < 1.0.0` |
+| `~> 0.7` | `>= 0.7.0 and < 1.0.0` |
 
-There is no special case for major `0`. Hex itself resolves `~> 0.17` to
-`0.18.5`:
+There is no special case for major `0`. Hex itself resolves `~> 0.7` to
+`0.8.8`:
 
 ```console
-$ mix deps.update excoveralls
-Upgraded:
-  excoveralls 0.17.1 => 0.18.5 (minor)
+$ mix deps.get
+Resolving Hex dependencies...
+Resolution completed in 0.608s
+New:
+  ecto_psql_extras 0.8.8
 ```
 
 Renovate already gets the equivalent case right when the major is `1`: for

@@ -11,6 +11,6 @@ defmodule Repro.MixProject do
   end
 
   defp deps do
-    [{:excoveralls, "~> 0.17", only: :test, runtime: false}]
+    [{:ecto_psql_extras, "~> 0.7"}]
   end
 end
