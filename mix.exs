@@ -11,6 +11,6 @@ defmodule Repro.MixProject do
   end
 
   defp deps do
-    [{:ecto_psql_extras, "~> 0.7"}]
+    [{:ecto_psql_extras, "~> 0.7 or ~> 0.8"}]
   end
 end
